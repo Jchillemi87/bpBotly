@@ -1,0 +1,12 @@
+http://clickmeter.com/track-classified-ads
+
+//go to https://my.backpage.com/classifieds/central/ManageAds
+
+$("#manageAds #dataTable tBody tr:last td:last a")[0].click(); //click the last "Manage Ad"
+
+$("a:contains('Move')")[0].click(); //click the "Move" your ad to the top of the listing
+
+$("input[value='single']").prop( "checked", true ); //select the Single Radio Button
+
+$("input[type='submit'][value='Continue']").trigger('click'); //maybe callback for radio button?
+
