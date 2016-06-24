@@ -1,37 +1,42 @@
 {
-    "name": "Dota 2 Percent Checker",
+    "name": "Botley for Backpage.com",
     "description": "Testing",
     "manifest_version": 2,
     "version": "0.0.1",
-    "icons": {
-        "16": "icon.png",
-        "48": "icon.png",
-        "128": "icon.png"
-    },
 
     "browser_action": {
-        "default_icon": "icon.png",
-        "default_popup": "popup.html"
+        "default_icon": "icon128.png"
     },
 
+    "background":{
+  	"scripts": ["jquery-2.2.3.min.js", "events.js"],
+  	"persistent": false
+	},
+
     "content_scripts": [{
-        "matches": ["http://*.craigslist.org/*", "https://*.craigslist.org/*"],
+        "matches": ["http://*.backpage.com/*", "https://*.backpage.com/*"],
         "all_frames": false,
-        "js": ["jquery-2.2.3.min.js", "content.js"]
+        "js": ["jquery-2.2.3.min.js"],
+        "run_at": "document_end"
     }],
 
     "permissions": [
+    	"alarms",
         "tabs",
         "activeTab",
         "clipboardWrite",
         "notifications",
         "storage",
         "contextMenus",
-        "https://*.craigslist.org/*",
-        "http://*.craigslist.org/*"
+        "http://*.backpage.com/*",
+        "https://*.backpage.com/*",
+        "webNavigation"
     ],
 
     "web_accessible_resources": [
         "jquery-2.2.3.min.js"
-    ]
+    ],
+
+    "icons": { "128": "icon128.png" }
+
 }

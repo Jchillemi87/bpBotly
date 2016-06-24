@@ -12,8 +12,8 @@ $(window).load(function() {
     });
 
     chrome.tabs.query({
-        "url": ["https://*.craigslist.org/*",
-            "http://*.craigslist.org/*"
+        "url": ["https://*.backpage.com/*",
+            "http://*.backpage/*"
         ]
     }, function(tabInfo) {
         chrome.tabs.update(tabInfo[0].id, { selected: true });

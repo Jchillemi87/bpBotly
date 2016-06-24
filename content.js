@@ -1,27 +1,12 @@
-function run(hide) {
-    if (hide != "") {
-        var jqHide = "span.txt:contains('" + hide + "')";
-        console.log("hiding: " + hide);
-        $(jqHide).find("span.banish").click();
-    }
-}
-
 $(document).ready(function() {
-    $("span#titletextonly").map(function(i, e) {
-        $(e).replaceWith($(e).text().toLowerCase());
-        console.log();
-    });
+    var removedAds = $("tr[bgcolor='#a79dff']");
+    if(removedAds){
+        removedAds.remove()
+    }
+    
+    var x = $("#manageAds #dataTable tBody tr:last td:last a")[0]; //click the last "Manage Ad"
+    if(x){
+        x.click();
+        console.log("first");
+    }
 });
-
-chrome.runtime.onMessage.addListener(
-    function(request, sender, sendResponse) {
-        console.log(sender.tab ?
-            "from a content script:" + sender.tab.url :
-            "from the extension:");
-
-
-        $.each(request, function() { run(this); });
-        /*var otherArray = ["joe", "bob", "mike"];
-        $.each(otherArray, function(){console.log(this);});
-        sendResponse({test: "turtle",bob:"the builder"});*/
-    });
