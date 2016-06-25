@@ -4,6 +4,11 @@ $(document).ready(function() {
         removedAds.remove()
     }
     
+    removedAds = $("tr[bgcolor='#ff4347']");
+        if(removedAds){
+        removedAds.remove()
+    }
+
     var x = $("#manageAds #dataTable tBody tr:last td:last a")[0]; //click the last "Manage Ad"
     if(x){
         x.click();
